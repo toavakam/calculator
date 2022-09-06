@@ -4,7 +4,7 @@ let sign = '';
 let finish = false;
 
 const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
-const action = ['-', '+', '*', '/', 'x2', 'x3', 'x^y'];
+const action = ['-', '+', '*', '/', 'x2', 'x3', 'x^y', 'ex', '10x', '1/x', 'sqrtx', 'sqrt3x', 'ysqrtx', 'ln', 'log10', 'x!', 'sin', 'cos', 'tan'];
 
 const out = document.querySelector('.calc-screen p');
 
@@ -60,11 +60,50 @@ document.querySelector('.buttons').onclick = (event) => {
         event.target.classList.add('bg-active');
         switch (sign) {
             case "x2":
-                x = x * x;
-                console.log(x);
+                x = x ** 2;
                 break;
             case "x3":
-                x = x * x * x;
+                x = x ** 3;
+                break;
+            case "ex":
+                x = Math.exp(x);
+                break;
+            case "10x":
+                x = Math.pow(10, x);
+                break;
+            case "1/x":
+                x = 1 / x;
+                break;
+            case "sqrtx":
+                x = Math.sqrt(x);
+                break;
+            case "sqrt3x":
+                x = Math.cbrt(x);
+                break;
+            case "ln":
+                x = Math.log(x);
+                break;
+            case "log10":
+                x = Math.log10(x);
+                break;
+            case "x!":
+                function factorial(x) {
+                    return  (x != 1) ? x * factorial(x - 1) : 1;
+                }
+                x = factorial(x)
+                break;
+            case "sin":
+                /*function getSinDeg(x) {
+                    let rad = x * Math.PI/180;
+                  }
+                  getSinDeg() */
+                  x = Math.sin(x * Math.PI/180);
+                break;
+            case "cos":
+                x = Math.cos(x * Math.PI/180);
+                break;
+            case "tan":
+                x = Math.tan(x * Math.PI/180);
                 break;
             default:
                 return;
@@ -98,7 +137,10 @@ document.querySelector('.buttons').onclick = (event) => {
                 x = x / y;
                 break;
             case "x^y":
-                x = Math.pow(x,y);
+                x = x ** y;
+                break;
+            case "ysqrtx":
+                x = Math.pow(x, 1 / y);
                 break;
         }
         finish = true;
