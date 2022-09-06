@@ -1,0 +1,118 @@
+sub, sup {
+    pointer-events: none;
+}
+.calc {
+    margin: 50px auto 15px;
+    width: 300px;
+    height: 500px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    background: #000;
+    color: #fff;
+    font-family: Arial;
+    padding: 18px;
+    box-shadow: 4px 4px 4px #4f4f4f;
+}
+.calc.toggle{
+    width: 640px;
+  }
+
+.calc-screen {
+    height: 125px;
+    padding: 10px;
+    display: grid;
+    justify-items: end;
+    align-items: end;
+    margin-bottom: 25px;
+}
+
+.calc-screen p {
+    text-align: right;
+    font-size: 4rem;
+    margin: 0;
+}
+
+.buttons{
+    display: grid;
+    grid-template-areas:
+    "ac plus-minus percent division"
+    "seven eight nine multi"
+    "four five six minus"
+    "one two three plus"
+    "zero zero dot equal";
+    grid-gap: 7px;
+    justify-items: center;
+}
+
+.buttons.toggle{
+    display: grid;
+    grid-template-areas:
+    "ac plus-minus percent division q w e"
+    "r t y seven eight nine multi"
+    "u i o four five six minus"
+    "a s d one two three plus"
+    "f g h zero zero dot equal";
+    grid-gap: 7px;
+    justify-items: center;  
+}
+
+.buttons .advancedbtn{
+    display: none;
+}
+
+.buttons.toggle .advancedbtn{
+    display: block;
+}
+
+
+.btn {
+    height: 60px;
+    width: 60px;
+    background: #333;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 60px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    user-select: none;
+}
+.btn.zero {
+    grid-area: zero;
+    width: 100%;
+    border-radius: 34px;
+}
+
+.btn:hover{
+    filter: brightness(120%); 
+}
+.btn:active{
+    filter: brightness(90%);
+}
+.btn.bg-grey{
+    background: #a6a6a6;
+}
+.btn.bg-orange{
+    background: #ff9501;
+}
+
+.btn.bg-orange:active, .btn.bg-active {
+    background: #fff;
+    color: #ff9501;
+}
+
+.advanced {
+    height: 60px;
+    width: 300px;
+    background: #000;
+    color: #ff9501;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 20px;
+    line-height: 60px;
+    font-size: 1.6rem;
+    margin: auto;
+    border: 1px solid #000;
+    box-shadow: 4px 4px 4px #4f4f4f;
+    padding: 5px 18px;
+    user-select: none;
+}
